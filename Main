@@ -1,0 +1,18 @@
+public class Main {
+    public static void main(String[] args) {
+        // Creamos fábricas concretas
+        ReportFactory htmlFactory = new ReportHTMLFactory("dark");
+        ReportFactory pdfFactory = new ReportPDFFactory(true);
+        ReportFactory excelFactory = new ReportExcelFactory(3);
+
+        // Creamos reportes usando las fábricas
+        Report report1 = htmlFactory.createReport("Reporte HTML", "Contenido HTML");
+        report1.generate();
+
+        Report report2 = pdfFactory.createReport("Reporte PDF", "Contenido PDF");
+        report2.generate();
+
+        Report report3 = excelFactory.createReport("Reporte Excel", "Contenido Excel");
+        report3.generate();
+    }
+}
